@@ -11,12 +11,12 @@ namespace TestsAdelMobileBack
     class TestsParser
     {
         [Test]
-        public async Task GetContent()
+        public async Task GetRubin()
         {
             //A
             string result = "OK";
             //A
-            string Ok = await new Parser().GetContent();
+            string Ok = await new Parser().GetRubinAsync();
             //A
             Assert.That(Equals(Ok,result));
         }

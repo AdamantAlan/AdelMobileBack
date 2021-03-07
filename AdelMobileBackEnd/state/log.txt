@@ -1,0 +1,6 @@
+[08.03.2021 3:06:01] GetRubinAsync ERROR: './/h1[@class='mb-10' itempror='name']' has an invalid token.
+
+[08.03.2021 3:06:17] GetRubinAsync ERROR: './/h1[@class='mb-10' itempror='name']' has an invalid token.
+
+[08.03.2021 3:07:24] GetRubinAsync ERROR: './/h1[@class='mb-10' itempror='name']' has an invalid token.
+

@@ -15,24 +15,24 @@ namespace AdelMobileBackEnd.Controllers
     {
         // GET   api/v1/Test
         [HttpGet]
-        public async Task<JsonModel> GetAllStubParse()
+        public async Task<JsonTestStub> GetAllStubParseAsync()
         {
           
             return await  StubJson.DeserializeOfFileAsync();
         }
         // POST   api/v1/Test
         [HttpPost]
-        public async Task<ActionResult> PostStubParse([FromBody] JsonModel Json)
+        public async Task<ActionResult> PostStubParseAsync([FromBody] JsonTestStub Json)
         {
             await StubJson.SerializeForFileAsync(Json);
             return Ok();
         }
         
         [HttpGet("parse")]
-        public async Task<ActionResult> GetParse()
+        public async Task<ActionResult> GetParseAsync()
         {
             Parser p = new Parser();
-           await  p.GetContent();
+            await p.GetRubinAsync();
             return Ok();
         }
     }

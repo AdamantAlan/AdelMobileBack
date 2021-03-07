@@ -1,0 +1,12 @@
+[08.03.2021 3:00:53] GetRubinAsync ERROR: './/h1[@class='mb-10' itempror='name']' has an invalid token.
+
+ber: 0 | BytePositionInLine: 18.[08.03.2021 3:07:57] GetRubinAsync ERROR: './/h1[@class='mb-10'' has an invalid token.
+
+[08.03.2021 3:08:02] STUBDeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 18.
+
+[08.03.2021 3:08:03] GetRubinAsync ERROR: './/h1[@class='mb-10'' has an invalid token.
+
+[08.03.2021 3:09:29] STUBDeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 18.
+
+[08.03.2021 3:09:29] GetRubinAsync ERROR: './/h1[@class='mb-10'' has an invalid token.
+

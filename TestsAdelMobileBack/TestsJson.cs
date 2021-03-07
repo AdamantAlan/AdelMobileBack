@@ -17,7 +17,7 @@ namespace TestsAdelMobileBack
         public async Task JsonSerializeForFile()
         {
             // A 
-            JsonModel model = new JsonModel { a = 2, b = "123" };
+            JsonTestStub model = new JsonTestStub { a = 2, b = "123" };
             string result = "Serializeble successful";
             //A
             string JAOK = await  StubJson.SerializeForFileAsync(model);
@@ -28,9 +28,9 @@ namespace TestsAdelMobileBack
         public async Task JsonDeserializeForFile()
         {
             //A
-            JsonModel model = new JsonModel { a = 123, b = "123123" };
+            JsonTestStub model = new JsonTestStub { a = 123, b = "123123" };
             //A
-            JsonModel JAOK = await   StubJson.DeserializeOfFileAsync();
+            JsonTestStub JAOK = await StubJson.DeserializeOfFileAsync();
             //A
             Expect(Equals(JAOK.a,model.a));
             Expect(Equals(JAOK.b, model.b));

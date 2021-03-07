@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AdelMobileBackEnd.models
+namespace AdelMobileBackEnd.Stubs
 {
-    public class JsonModel
+    public class JsonTestStub
     {
         public int a {get;set;}
         public string b { get; set; }

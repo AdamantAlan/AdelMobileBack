@@ -1,55 +1,46 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-
+using AdelMobileBackEnd.Stubs;
 namespace AdelMobileBackEnd.models
 {
     public static class JsonAsync
     {
 
-       public static async Task<JsonModel> DeserializeOfFileAsync()
+       public static async Task<JsonTestStub> DeserializeOfFileAsync()
         {
             try
             {
                 using (FileStream fs = new FileStream("state/result.json", FileMode.OpenOrCreate))
                 {
-                    JsonModel json = await JsonSerializer.DeserializeAsync<JsonModel>(fs);
+                    JsonTestStub json = await JsonSerializer.DeserializeAsync<JsonTestStub>(fs);
                     return json;
                 }
             }
             catch (Exception e)
             {
-                using (FileStream fs = new FileStream("state/log.txt", FileMode.OpenOrCreate))
-                {
-                    byte[] error = System.Text.Encoding.Default.GetBytes(" DeserializeOfFileAsync:" + e.Message);
-                   await fs.WriteAsync(error, 0, error.Length);
-                    return null;
-                }
+                await Log.LoggingAsync(e, "DeserializeOfFileAsync");
+                return null;
             }
         }
 
-        public static async Task<string> SerializeForFileAsync(JsonModel Json)
+        public static async Task<string> SerializeForFileAsync(JsonTestStub Json)
         {
             try
             {
                 if (Json == null)
                     return "Bad serialize, string is null or empty - SerializeForFile(string noJson)";
                 using (FileStream fs = new FileStream("state/result.json", FileMode.OpenOrCreate))
-                    await JsonSerializer.SerializeAsync<JsonModel>(fs, Json);
+                    await JsonSerializer.SerializeAsync<JsonTestStub>(fs, Json);
                 return "Serializeble successful";  //Good result
             }
             catch (Exception e)
             {
-                using (FileStream fs = new FileStream("state/log.txt", FileMode.OpenOrCreate))
-                {
-                    byte[] error = System.Text.Encoding.Default.GetBytes("SerializeForFileAsync ERROR:" + e.Message);
-                   await fs.WriteAsync(error, 0, error.Length);
-                    return null;
-                }
+                await Log.LoggingAsync(e, "SerializeForFileAsync");
+                return null;
             }
         }
     }

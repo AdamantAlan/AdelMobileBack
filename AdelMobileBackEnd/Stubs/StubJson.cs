@@ -10,26 +10,37 @@ namespace AdelMobileBackEnd.Stubs
 {
     public static class StubJson
     {
-        public static async Task<JsonModel> DeserializeOfFileAsync()
+        public static async Task<JsonTestStub> DeserializeOfFileAsync()
         {
-            if (File.Exists("state/test.json"))
+            try
+            {
                 using (FileStream fs = new FileStream("state/test.json", FileMode.OpenOrCreate))
                 {
-                    JsonModel json = await JsonSerializer.DeserializeAsync<JsonModel>(fs);
+                    JsonTestStub json = await JsonSerializer.DeserializeAsync<JsonTestStub>(fs);
                     return json;
                 }
-            return null;
-
-        }
-        public static  async Task<string> SerializeForFileAsync(JsonModel Json)
-        {
-
-            if (Json == null)
-                return "Bad serialize, string is null or empty - SerializeForFile(string noJson)";
-            using (FileStream fs = new FileStream("state/test.json", FileMode.OpenOrCreate))
+            }
+            catch (Exception e)
             {
-                await JsonSerializer.SerializeAsync<JsonModel>(fs, Json);
+                await Log.LoggingAsync(e, "STUBDeserializeOfFileAsync");
+                return null;
+            }
+        }
+
+        public static async Task<string> SerializeForFileAsync(JsonTestStub Json)
+        {
+            try
+            {
+                if (Json == null)
+                    return "Bad serialize, string is null or empty - SerializeForFile(string noJson)";
+                using (FileStream fs = new FileStream("state/test.json", FileMode.OpenOrCreate))
+                    await JsonSerializer.SerializeAsync<JsonTestStub>(fs, Json);
                 return "Serializeble successful";  //Good result
+            }
+            catch (Exception e)
+            {
+                await Log.LoggingAsync(e, "STUBSerializeForFileAsync");
+                return null;
             }
         }
     }
