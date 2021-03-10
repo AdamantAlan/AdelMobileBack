@@ -4,3 +4,5 @@
 
 [08.03.2021 3:07:24] GetRubinAsync ERROR: './/h1[@class='mb-10' itempror='name']' has an invalid token.
 
+[10.03.2021 21:17:07] STUBDeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 20.
+

@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using AdelMobileBackEnd.models;
 using AdelMobileBackEnd.Stubs;
 using System.Threading.Tasks;
 namespace TestsAdelMobileBack
@@ -7,12 +6,6 @@ namespace TestsAdelMobileBack
     [TestFixture]
     public class TestsJson:AssertionHelper
     {
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
         [Test]
         public async Task JsonSerializeForFile()
         {
@@ -28,7 +21,7 @@ namespace TestsAdelMobileBack
         public async Task JsonDeserializeForFile()
         {
             //A
-            JsonTestStub model = new JsonTestStub { a = 123, b = "123123" };
+            JsonTestStub model = new JsonTestStub { a = 0, b = "string" };
             //A
             JsonTestStub JAOK = await StubJson.DeserializeOfFileAsync();
             //A

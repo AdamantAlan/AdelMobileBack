@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("AdelMobileBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "W:\\projects\\AdelMobile\\Debuge\\AdelMobileBack\\AdelMobileBackEnd", "AdelMobileBackEnd.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestsAdelMobileBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

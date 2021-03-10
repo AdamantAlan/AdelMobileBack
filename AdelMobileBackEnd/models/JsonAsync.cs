@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using AdelMobileBackEnd.Stubs;
 namespace AdelMobileBackEnd.models
 {
+
     public static class JsonAsync
     {
 
-       public static async Task<JsonTestStub> DeserializeOfFileAsync()
+       internal static async Task<JsonTestStub> DeserializeOfFileAsync()
         {
             try
             {
@@ -27,7 +28,7 @@ namespace AdelMobileBackEnd.models
             }
         }
 
-        public static async Task<string> SerializeForFileAsync(JsonTestStub Json)
+        internal static async Task<string> SerializeForFileAsync(JsonTestStub Json)
         {
             try
             {

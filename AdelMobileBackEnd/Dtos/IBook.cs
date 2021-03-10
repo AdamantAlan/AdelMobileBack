@@ -7,8 +7,8 @@ namespace AdelMobileBackEnd.models
 {
     public class Book
     {
-        public string Title { get; set; }
-        public int Likes { get; set; }
-        public int Comments { get; set; }
+        string title { get; set; }
+        int likes { get; set; }
+        int comments { get; set; }
     }
 }

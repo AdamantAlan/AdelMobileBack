@@ -8,7 +8,7 @@ namespace AdelMobileBackEnd.models
 {
     public static class Log
     {
-       public static async Task LoggingAsync(Exception e, string nameMethod)
+       internal static async Task LoggingAsync(Exception e, string nameMethod)
         {
             using (FileStream fs = new FileStream("state/log.txt", FileMode.Append, FileAccess.Write))
             {
