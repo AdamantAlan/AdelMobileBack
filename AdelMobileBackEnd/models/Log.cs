@@ -16,6 +16,6 @@ namespace AdelMobileBackEnd.models
                 byte[] error = System.Text.Encoding.Default.GetBytes(message);
                 await fs.WriteAsync(error, 0, error.Length);
             }
-        }
+        } 
     }
 }

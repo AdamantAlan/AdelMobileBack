@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace AdelMobileBackEnd.models.absFactoryOfBook.products
 {
-    abstract public class absBook
+    abstract public class absBook:IBook
     {
-        internal string Title { get; set; }
-        internal int Comments { get; set; }
-        internal int Likes { get; set; }
+        public string Title { get; set; }
+        public int Comments { get; set; }
+        public int Likes { get; set; }
 
         public absBook(string title, int comments, int likes)
         {

@@ -114,7 +114,6 @@ W:\projects\AdelMobile\Debuge\TestsAdelMobileBack\bin\Debug\net5.0\state\test.js
 W:\projects\AdelMobile\Debuge\TestsAdelMobileBack\bin\Debug\net5.0\HtmlAgilityPack.dll
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\appsettings.Development.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\appsettings.json
-W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\state\result.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\state\test.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\NUnit3.TestAdapter.dll
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
@@ -514,3 +513,5 @@ W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\System.IO.Pipelines.dll
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\testhost.exe
 W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\nunit.engine.core.dll
+W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\state\Rubin.json
+W:\projects\AdelMobile\Debuge\AdelMobileBack\TestsAdelMobileBack\bin\Debug\net5.0\state\Wool.json

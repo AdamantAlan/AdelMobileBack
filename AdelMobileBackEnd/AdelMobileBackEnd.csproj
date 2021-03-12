@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="state\" />
+    <Folder Include="Stubs\" />
   </ItemGroup>
 
 </Project>

@@ -5,10 +5,16 @@ using System.Threading.Tasks;
 
 namespace AdelMobileBackEnd.models
 {
-    public class Book
+    public interface IBook
     {
-        string title { get; set; }
-        int likes { get; set; }
-        int comments { get; set; }
+        public string Title { get; set; }
+        public int Comments { get; set; }
+        public int Likes { get; set; }
+    }
+    public class Book :IBook
+    {
+        public string Title { get; set; }
+        public int Comments { get; set; }
+        public int Likes { get; set; }
     }
 }

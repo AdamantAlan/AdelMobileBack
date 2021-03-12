@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdelMobileBackEnd.models.absFactoryOfBook.factories
 {
-    public class PrayerFactory : absFactoryOfBook
+    public class PrayerFactory : FactoryOfBook
     {
-        public override absBook GetBook(string title, int comments, int likes)
+        public  async override Task<absBook> GetBook()
         {
-            return new Prayer(title, comments, likes);
+            return new Prayer("qwe", 5, 43);
         }
     }
 }

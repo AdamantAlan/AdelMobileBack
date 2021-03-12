@@ -7,53 +7,59 @@ using System.Text.RegularExpressions;
 using System.Net.Http;
 using System.IO;
 using HtmlAgilityPack;
+using AdelMobileBackEnd.models.absFactoryOfBook;
+using AdelMobileBackEnd.models.absFactoryOfBook.factories;
+using AdelMobileBackEnd.models.absFactoryOfBook.products;
 
 namespace AdelMobileBackEnd.models
 {
-    public class Parser
+    public interface IParser<T>
     {
-        private static string ficbook;
-        public static string Ficbook { get { return ficbook; } }
-        public async Task<string> GetRubinAsync()
+        public Task<T> GetBookAsync();
+    }
+
+
+
+
+    public class Parser<T>:IParser<T> where T:class
+    {
+
+        private FactoryOfBook _absFactory;
+        public async Task<T> GetBookAsync()
         {
+
+            _absFactory = getFactory();
             try
             {
-                //  string htmlSite = new WebClient().DownloadString(URI);
-                //  string NameBook =  Regex.Match(htmlSite, @"<h1 class""mb-10"" itemprop=""name"">[А-Я-а-я]+").Groups[1].Value;
-                using (HttpClientHandler handler = new HttpClientHandler { AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.All })
-                {
-
-                    using (HttpClient client = new HttpClient(handler))
-                    {
-                        client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; AcmeInc/1.0)");
-                        using (HttpResponseMessage response = await client.GetAsync("https://ficbook.net/readfic/9838377"))
-                        {
-                            ficbook = await response.Content.ReadAsStringAsync();
-                            if (string.IsNullOrEmpty(ficbook))
-                                return "Bad request!";
-                            HtmlDocument doc = new HtmlDocument();
-                            doc.LoadHtml(Ficbook);
-                      
-                            var like = doc.DocumentNode.SelectSingleNode(".//span[@class='badge-text js-marks-plus']").InnerText;
-                            var title = doc.DocumentNode.SelectSingleNode(".//h1[@class='mb-10']").InnerText;
-                            var comments = (doc.DocumentNode.SelectSingleNode(".//span[@class='main-info']").InnerText).Replace("\n", " ").Replace(" ","");
-                            return "OK";
-                        }
-                    }
-                }
+                 
+               
+              return await _absFactory.GetBook() as T;
             }
             catch (Exception e)
             {
-                
                     await Log.LoggingAsync(e, "GetRubinAsync");
-                    return "Bad request!";
-                
+                    return null;
             }
         }
-
-     
-
+        private FactoryOfBook getFactory()
+        {
+            if(typeof(T).Name == "Rubin")
+                return new RubinFactory();
+            if (typeof(T).Name is "Portrait")
+                return new PortraitFactory();
+            if (typeof(T).Name is "Prayer")
+                return new PrayerFactory();
+            if (typeof(T).Name is "Wool")
+                return new WoolFactory();
+            return null;
+        }
+    
     }
+
+   
+
+
+
 }
 
 

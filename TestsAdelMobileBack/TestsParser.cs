@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using AdelMobileBackEnd.models;
+using AdelMobileBackEnd.models.absFactoryOfBook.products;
+
+
 namespace TestsAdelMobileBack
 {
     [TestFixture]
@@ -14,11 +17,27 @@ namespace TestsAdelMobileBack
         public async Task GetRubin()
         {
             //A
-            string result = "OK";
+            Rubin result = new Rubin("Рубин", 11,15);
+            IParser<Rubin> parser = new Parser<Rubin>();
             //A
-            string Ok = await new Parser().GetRubinAsync();
+            Rubin Ok = await parser.GetBookAsync();
             //A
-            Assert.That(Equals(Ok,result));
+            Assert.That(Equals(Ok.Title,result.Title));
+            Assert.That(Equals(Ok.Likes, result.Likes));
+            Assert.That(Equals(Ok.Comments, result.Comments));
+        }
+        [Test]
+        public async Task GetWool()
+        {
+            //A
+            Wool result = new Wool("Шерсть", 0, 2);
+            IParser<Wool> parser = new Parser<Wool>();
+            //A
+            Wool Ok = await parser.GetBookAsync();
+            //A
+            Assert.That(Equals(Ok.Title, result.Title));
+            Assert.That(Equals(Ok.Likes, result.Likes));
+            Assert.That(Equals(Ok.Comments, result.Comments));
         }
     }
 }
