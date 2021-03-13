@@ -15,8 +15,6 @@ namespace AdelMobileBackEnd.models.absFactoryOfBook.factories
 
             try
             {
-                //  string htmlSite = new WebClient().DownloadString(URI);
-                //  string NameBook =  Regex.Match(htmlSite, @"<h1 class""mb-10"" itemprop=""name"">[А-Я-а-я]+").Groups[1].Value;
                 using (HttpClientHandler handler = new HttpClientHandler { AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.All })
                 {
 

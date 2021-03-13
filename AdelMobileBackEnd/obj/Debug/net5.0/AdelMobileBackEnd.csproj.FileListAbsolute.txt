@@ -32,7 +32,6 @@ W:\projects\AdelMobile\Debuge\AdelMobileBackEnd\bin\Debug\net5.0\state\test.json
 W:\projects\AdelMobile\Debuge\AdelMobileBackEnd\bin\Debug\net5.0\HtmlAgilityPack.dll
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\appsettings.Development.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\appsettings.json
-W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\state\test.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\AdelMobileBackEnd.exe
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\AdelMobileBackEnd.deps.json
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\AdelMobileBackEnd.runtimeconfig.json
@@ -61,5 +60,3 @@ W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\obj\Debug\net5.0\
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\obj\Debug\net5.0\ref\AdelMobileBackEnd.dll
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\obj\Debug\net5.0\AdelMobileBackEnd.pdb
 W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\obj\Debug\net5.0\AdelMobileBackEnd.genruntimeconfig.cache
-W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\state\Rubin.json
-W:\projects\AdelMobile\Debuge\AdelMobileBack\AdelMobileBackEnd\bin\Debug\net5.0\state\Wool.json

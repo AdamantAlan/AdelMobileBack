@@ -50,3 +50,13 @@ ber: 0 | BytePositionInLine: 18.[08.03.2021 3:07:57] GetRubinAsync ERROR: './/h1
 
 [13.03.2021 2:22:44] GetRubinAsync ERROR: Input string was not in a correct format.
 
+[13.03.2021 18:19:51] DeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 40.
+
+[13.03.2021 18:20:13] DeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 40.
+
+[13.03.2021 18:20:51] DeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 40.
+
+[13.03.2021 18:21:44] DeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 40.
+
+[13.03.2021 18:22:00] DeserializeOfFileAsync ERROR: '"' is invalid after a single JSON value. Expected end of data. Path: $ | LineNumber: 0 | BytePositionInLine: 40.
+

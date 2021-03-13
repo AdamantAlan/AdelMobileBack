@@ -15,8 +15,6 @@ namespace AdelMobileBackEnd.models.absFactoryOfBook.factories
         {
             try
             {
-                //  string htmlSite = new WebClient().DownloadString(URI);
-                //  string NameBook =  Regex.Match(htmlSite, @"<h1 class""mb-10"" itemprop=""name"">[А-Я-а-я]+").Groups[1].Value;
                 using (HttpClientHandler handler = new HttpClientHandler { AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.All })
                 {
 
@@ -39,7 +37,7 @@ namespace AdelMobileBackEnd.models.absFactoryOfBook.factories
                             start = ficbook.IndexOf(@"</svg>");
                             ficbook = ficbook.Substring(start);
                             int end = ficbook.IndexOf("</span>");
-                            var commentsHtml = ficbook.Substring(0, end).Replace("</svg>","") ;  //(doc.DocumentNode.SelectSingleNode(".//span[@class='main-info']").InnerText); //.Replace("\n", " ").Replace(" ", "")
+                            var commentsHtml = ficbook.Substring(0, end).Replace("</svg>","") ; 
                             return new Wool(titleHtml, int.Parse(commentsHtml), int.Parse(likeHtml));
                         }
                     }
