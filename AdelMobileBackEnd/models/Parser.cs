@@ -29,10 +29,11 @@ namespace AdelMobileBackEnd.models
                 _absFactory = getFactory();
                 return await _absFactory.GetBook() as T;
             }
-            catch (Exception e)
+            catch (AggregateException exs)
             {
-                    await Log.LoggingAsync(e, "GetRubinAsync");
-                    return null;
+                foreach (var e in exs.InnerExceptions)
+                    await Log.LoggingAsync(e, "GetBookAsync");
+                return null;
             }
         }
         public async  Task<Dictionary<string, IBook>> GetAllBooksAsync()

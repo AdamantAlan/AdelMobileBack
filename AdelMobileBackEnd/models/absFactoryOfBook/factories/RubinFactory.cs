@@ -43,12 +43,11 @@ namespace AdelMobileBackEnd.models.absFactoryOfBook.factories
                     }
                 }
             }
-            catch (Exception e)
+            catch (AggregateException exs)
             {
-
-                await Log.LoggingAsync(e, "GetRubinAsync");
+                foreach (var e in exs.InnerExceptions)
+                    await Log.LoggingAsync(e, "GetRubinAsync");
                 return null;
-
             }
         }
     }

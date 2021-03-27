@@ -21,9 +21,10 @@ namespace AdelMobileBackEnd.models
                     return (IBook)json;
                 }
             }
-            catch (Exception e)
+            catch (AggregateException exs)
             {
-                await Log.LoggingAsync(e, "DeserializeOfFileAsync");
+                foreach (var e in exs.InnerExceptions)
+                    await Log.LoggingAsync(e, "DeserializeOfFileAsync");
                 return null;
             }
         }
@@ -38,9 +39,10 @@ namespace AdelMobileBackEnd.models
                     await JsonSerializer.SerializeAsync<T>(fs, (T)Json);
                 return "Serializeble successful";  //Good result
             }
-            catch (Exception e)
+            catch (AggregateException exs)
             {
-                await Log.LoggingAsync(e, "SerializeForFileAsync");
+                foreach (var e in exs.InnerExceptions)
+                    await Log.LoggingAsync(e, "SerializeForFileAsync");
                 return null;
             }
         }
