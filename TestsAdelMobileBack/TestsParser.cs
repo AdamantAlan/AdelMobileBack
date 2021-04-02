@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using AdelMobileBackEnd.models;
 using AdelMobileBackEnd.models.absFactoryOfBook.products;
-
+using Moq;
 
 namespace TestsAdelMobileBack
 {
@@ -17,10 +17,10 @@ namespace TestsAdelMobileBack
         public async Task GetRubin()
         {
             //A
-            Rubin result = new Rubin("Рубин", 11,15);
-            IParser<Rubin> parser = new Parser<Rubin>();
+            Rubin result = new Rubin("Рубин", 11,16);
+
             //A
-            Rubin Ok = await parser.GetBookAsync();
+            Rubin Ok = await new Parser().GetBookAsync<Rubin>();
             //A
             Assert.That(Equals(Ok.Title,result.Title));
             Assert.That(Equals(Ok.Likes, result.Likes));
@@ -31,9 +31,9 @@ namespace TestsAdelMobileBack
         {
             //A
             Wool result = new Wool("Шерсть", 0, 2);
-            IParser<Wool> parser = new Parser<Wool>();
+          
             //A
-            Wool Ok = await parser.GetBookAsync();
+            Wool Ok = await new Parser().GetBookAsync<Wool>();
             //A
             Assert.That(Equals(Ok.Title, result.Title));
             Assert.That(Equals(Ok.Likes, result.Likes));
@@ -45,9 +45,9 @@ namespace TestsAdelMobileBack
         {
             //A
             Prayer result = new Prayer("Просьба", 4, 10);
-            IParser<Prayer> parser = new Parser<Prayer>();
+        
             //A
-            Prayer Ok = await parser.GetBookAsync();
+            Prayer Ok = await new Parser().GetBookAsync<Prayer>();
             //A
             Assert.That(Equals(Ok.Title, result.Title));
             Assert.That(Equals(Ok.Likes, result.Likes));
@@ -59,9 +59,8 @@ namespace TestsAdelMobileBack
         {
             //A
             Portrait result = new Portrait("История одного портрета", 1, 5);
-            IParser<Portrait> parser = new Parser<Portrait>();
             //A
-            Portrait Ok = await parser.GetBookAsync();
+            Portrait Ok = await new Parser().GetBookAsync<Portrait>();
             //A
             Assert.That(Equals(Ok.Title, result.Title));
             Assert.That(Equals(Ok.Likes, result.Likes));
@@ -71,17 +70,17 @@ namespace TestsAdelMobileBack
         public async Task GetAll()
         {
             //A
-            var rubin = await new Parser<Rubin>().GetBookAsync();
-            var wool = await new Parser<Wool>().GetBookAsync();
-            var prayer = await new Parser<Prayer>().GetBookAsync();
-            var portrait = await new Parser<Portrait>().GetBookAsync();
+            var rubin = await new Parser().GetBookAsync<Rubin>();
+            var wool = await new Parser().GetBookAsync<Wool>();
+            var prayer = await new Parser().GetBookAsync<Prayer>();
+            var portrait = await new Parser().GetBookAsync<Portrait>();
             Dictionary<string, IBook> bookStubs = new Dictionary<string, IBook>();
            bookStubs.Add("Rubin",rubin);
             bookStubs.Add("Wool",wool);
             bookStubs.Add("Prayer",prayer);
             bookStubs.Add("Portrait",portrait);
             //A
-            Dictionary<string,IBook> Ok = await  new Parser<Rubin>().GetAllBooksAsync();
+            Dictionary<string,IBook> Ok = await  new Parser().GetAllBooksAsync();
             //A
             foreach(var i in Ok)
                 foreach(var j in bookStubs)

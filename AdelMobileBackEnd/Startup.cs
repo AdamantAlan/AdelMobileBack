@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdelMobileBackEnd.Extensions;
+using System.IO;
+using AdelMobileBackEnd.models;
 
 namespace AdelMobileBackEnd
 {
@@ -28,6 +31,7 @@ namespace AdelMobileBackEnd
         {
 
             services.AddControllers();
+            services.AddSingleton<IParser, Parser>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AdelMobileBackEnd", Version = "v1" });
@@ -35,8 +39,12 @@ namespace AdelMobileBackEnd
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseStaticFiles(); // Чтобы посмотреть джейсончики
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "state/logger.txt")); // первый логгер 
+            var logger = loggerFactory.CreateLogger("FileLogger");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

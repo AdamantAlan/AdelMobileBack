@@ -13,20 +13,20 @@ using AdelMobileBackEnd.models.absFactoryOfBook.products;
 
 namespace AdelMobileBackEnd.models
 {
-    public interface IParser<T>
+    public interface IParser
     {
-        public Task<T> GetBookAsync();
+        public Task<T> GetBookAsync<T>() where T : class;
         public Task<Dictionary<string, IBook>> GetAllBooksAsync();
     }
 
-    public class Parser<T>:IParser<T> where T:class
+    public class Parser:IParser 
     {
         private FactoryOfBook _absFactory;
-        public async Task<T> GetBookAsync()
+        public async Task<T> GetBookAsync<T>() where T:class
         {
             try
             {
-                _absFactory = getFactory();
+                _absFactory = GetFactory<T>();
                 return await _absFactory.GetBook() as T;
             }
             catch (AggregateException exs)
@@ -39,15 +39,15 @@ namespace AdelMobileBackEnd.models
         public async  Task<Dictionary<string, IBook>> GetAllBooksAsync()
         {
           return  new Dictionary<string, IBook> {
-                [nameof(Rubin)] = await new Parser<Rubin>().GetBookAsync(),
-                [nameof(Wool)] = await new Parser<Wool>().GetBookAsync(),
-                [nameof(Prayer)] = await new Parser<Prayer>().GetBookAsync(),
-                [nameof(Portrait)] = await new Parser<Portrait>().GetBookAsync(),
+                [nameof(Rubin)] = await new Parser().GetBookAsync<Rubin>(),
+                [nameof(Wool)] = await new Parser().GetBookAsync<Wool>(),
+                [nameof(Prayer)] = await new Parser().GetBookAsync<Prayer>(),
+                [nameof(Portrait)] = await new Parser().GetBookAsync<Portrait>(),
             };
 
 
         }
-        private FactoryOfBook getFactory()
+        private FactoryOfBook GetFactory<T>()
         {
             if(typeof(T).Name == "Rubin")
                 return new RubinFactory();

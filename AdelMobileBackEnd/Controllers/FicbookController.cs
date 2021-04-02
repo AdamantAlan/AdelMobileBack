@@ -13,13 +13,17 @@ namespace AdelMobileBackEnd.Controllers
     [ApiController]
     public class FicbookController : ControllerBase
     {
-
+        private readonly IParser _parser;
+        public FicbookController(IParser parser)
+        {
+            _parser = parser;
+        }
         // GET:api/v1/ficbook/rubin
         [HttpGet("rubin")]
         public async Task<ActionResult> GetRubinFromFicbook()
         {
-            IParser<Rubin> parser = new Parser<Rubin>();
-            _ = await JsonAsync.SerializeForFileAsync<Rubin>(await parser.GetBookAsync());
+
+            _ = await JsonAsync.SerializeForFileAsync<Rubin>(await _parser.GetBookAsync<Rubin>());
             return Ok();
         }
         // GET:api/v1/ficbook/rubin/get
@@ -34,8 +38,7 @@ namespace AdelMobileBackEnd.Controllers
         [HttpGet("wool")]
         public async Task<ActionResult> GetWoolFromFicbook()
         {
-            IParser<Wool> parser = new Parser<Wool>();
-            _ = await JsonAsync.SerializeForFileAsync<Wool>(await parser.GetBookAsync());
+            _ = await JsonAsync.SerializeForFileAsync<Wool>(await _parser.GetBookAsync<Wool>());
             return Ok();
         }
         // GET:api/v1/ficbook/wool/get
@@ -50,8 +53,7 @@ namespace AdelMobileBackEnd.Controllers
         [HttpGet("prayer")]
         public async Task<ActionResult> GetPrayerFromFicbook()
         {
-            IParser<Prayer> parser = new Parser<Prayer>();
-            _ = await JsonAsync.SerializeForFileAsync<Prayer>(await parser.GetBookAsync());
+            _ = await JsonAsync.SerializeForFileAsync<Prayer>(await _parser.GetBookAsync<Prayer>());
             return Ok();
         }
         // GET:api/v1/ficbook/prayer/get
@@ -66,8 +68,7 @@ namespace AdelMobileBackEnd.Controllers
         [HttpGet("portrait")]
         public async Task<ActionResult> GetPortraitFromFicbook()
         {
-            IParser<Portrait> parser = new Parser<Portrait>();
-            _ = await JsonAsync.SerializeForFileAsync<Portrait>(await parser.GetBookAsync());
+            _ = await JsonAsync.SerializeForFileAsync<Portrait>(await _parser.GetBookAsync<Portrait>());
             return Ok();
         }
         // GET:api/v1/ficbook/portrait/get
@@ -82,8 +83,7 @@ namespace AdelMobileBackEnd.Controllers
         [HttpGet("all")]
         public async Task<ActionResult> GetAllFicbook()
         {
-            IParser<Portrait> parser = new Parser<Portrait>();
-            Dictionary<string, IBook> books = await parser.GetAllBooksAsync();
+            Dictionary<string, IBook> books = await _parser.GetAllBooksAsync();
             foreach (var book in books) {
                 if(book.Key == "Rubin" )
                 _ = await JsonAsync.SerializeForFileAsync<Rubin>(book.Value);

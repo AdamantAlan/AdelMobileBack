@@ -21,6 +21,7 @@ namespace AdelMobileBackEnd
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseWebRoot("state");
                 });
     }
 }
