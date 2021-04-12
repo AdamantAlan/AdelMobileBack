@@ -79,6 +79,38 @@ namespace AdelMobileBackEnd.Controllers
             return await JsonAsync.DeserializeOfFileAsync<Portrait>();
         }
 
+        // GET:api/v1/ficbook/curls
+        [HttpGet("curls")]
+        public async Task<ActionResult> GetCurlsFromFicbook()
+        {
+            _ = await JsonAsync.SerializeForFileAsync<Curls>(await _parser.GetBookAsync<Curls>());
+            return Ok();
+        }
+
+        // GET:api/v1/ficbook/curls/get
+        [HttpGet("curls/get")]
+        public async Task<IBook> GetCurlsForAdel()
+        {
+            await GetCurlsFromFicbook();
+            return await JsonAsync.DeserializeOfFileAsync<Curls>();
+        }
+
+        // GET:api/v1/ficbook/glut
+        [HttpGet("glut")]
+        public async Task<ActionResult> GetGlutFromFicbook()
+        {
+            _ = await JsonAsync.SerializeForFileAsync<Glut>(await _parser.GetBookAsync<Glut>());
+            return Ok();
+        }
+
+        // GET:api/v1/ficbook/glut/get
+        [HttpGet("glut/get")]
+        public async Task<IBook> GetGlutForAdel()
+        {
+            await GetCurlsFromFicbook();
+            return await JsonAsync.DeserializeOfFileAsync<Glut>();
+        }
+
         // GET:api/v1/ficbook/all
         [HttpGet("all")]
         public async Task<ActionResult> GetAllFicbook()
@@ -93,7 +125,11 @@ namespace AdelMobileBackEnd.Controllers
                         _ = await JsonAsync.SerializeForFileAsync<Prayer>(book.Value);
                     if (book.Key == "Portrait")
                         _ = await JsonAsync.SerializeForFileAsync<Portrait>(book.Value);
-                }
+                    if (book.Key == "Curls")
+                        _ = await JsonAsync.SerializeForFileAsync<Curls>(book.Value);
+                    if (book.Key == "Glut")
+                    _ = await JsonAsync.SerializeForFileAsync<Glut>(book.Value);
+            }
          
             return Ok();
         }
@@ -107,7 +143,9 @@ namespace AdelMobileBackEnd.Controllers
                 ["Rubin"] = await JsonAsync.DeserializeOfFileAsync<Rubin>(),
                 ["Wool"] = await JsonAsync.DeserializeOfFileAsync<Wool>(),
                 ["Prayer"] = await JsonAsync.DeserializeOfFileAsync<Prayer>(),
-                ["Portrait"] = await JsonAsync.DeserializeOfFileAsync<Portrait>()
+                ["Portrait"] = await JsonAsync.DeserializeOfFileAsync<Portrait>(),
+                ["Curls"] = await JsonAsync.DeserializeOfFileAsync<Curls>(),
+                ["Glut"] = await JsonAsync.DeserializeOfFileAsync<Glut>()
             };
         }
 

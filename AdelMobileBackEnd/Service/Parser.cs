@@ -38,18 +38,20 @@ namespace AdelMobileBackEnd.models
         }
         public async  Task<Dictionary<string, IBook>> GetAllBooksAsync()
         {
-          return  new Dictionary<string, IBook> {
+            return new Dictionary<string, IBook>
+            {
                 [nameof(Rubin)] = await new Parser().GetBookAsync<Rubin>(),
                 [nameof(Wool)] = await new Parser().GetBookAsync<Wool>(),
                 [nameof(Prayer)] = await new Parser().GetBookAsync<Prayer>(),
                 [nameof(Portrait)] = await new Parser().GetBookAsync<Portrait>(),
+                [nameof(Curls)] = await new Parser().GetBookAsync<Curls>(),
+                [nameof(Glut)] = await new Parser().GetBookAsync<Glut>()
             };
-
-
+   
         }
         private FactoryOfBook GetFactory<T>()
         {
-            if(typeof(T).Name == "Rubin")
+            if (typeof(T).Name == "Rubin")
                 return new RubinFactory();
             if (typeof(T).Name is "Portrait")
                 return new PortraitFactory();
@@ -57,6 +59,10 @@ namespace AdelMobileBackEnd.models
                 return new PrayerFactory();
             if (typeof(T).Name is "Wool")
                 return new WoolFactory();
+            if (typeof(T).Name is "Curls")
+                return new CurlsFactory();
+            if (typeof(T).Name is "Glut")
+                return new GlutFactory();
             throw new Exception("factory not found!");
         }
     
