@@ -101,6 +101,7 @@ namespace AdelMobileBackEnd.Controllers
         [HttpGet("all/get")]
         public async Task<Dictionary<string, IBook>> GetAllForAdel()
         {
+            await GetAllFicbook();
             return new Dictionary<string, IBook>
             {
                 ["Rubin"] = await JsonAsync.DeserializeOfFileAsync<Rubin>(),
